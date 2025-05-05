@@ -238,6 +238,14 @@ When you call `prepare_mofa(..., training_options = train_opts)`, the `train_opt
 
 * `drop_factor_threshold`: Threshold on variance explained below which a factor is considered inactive and dropped. A value of 0.01 drops factors explaining < 1% variance; default = –1 disables automatic dropping 
 
+## __Limitations of MOFA2__
+
+* MOFA2 models each view as a linear combination of factors. Thus, it can miss non-linear relationships that deep-learning methods might capture.
+* MOFA2 supports only Gaussian, Bernoulli and Poisson likelihoods. If your data violate those assumptions (e.g., heavy tails, zero inflation), fit and factor interpretability can suffer.
+* Factors can mix unrelated signals if modalities are imbalanced or correlated, making biological interpretation less clear without careful downstream validation.
+* You need to pre-correct batch effects yourself or rely on MOFA2’s noise term, which isn’t always enough for large technical confounders.
+* Imbalance in features of different modalities can overshadow the results
+
 ## __Summary__
 
 By aligning your biological question, data characteristics, and interpretability requirements you can choose which tool to select for your multi-omic integration analysis.
@@ -249,7 +257,7 @@ In deeply understanding one such tool `MOFA2` we internalized the core of Bayesi
 * Choose modality‐specific likelihoods to match data distributions, and
 * Use approximate inference (EM, variational inference or VAEs) to recover posteriors.
 
-Now that we understand these four pillars, you can pick up and interpret any related multi-omic tool.
+Now that we understand these four pillars, you can pick up and interpret any related multi-omic tool. H
 
 ## __References__
 
