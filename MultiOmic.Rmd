@@ -48,7 +48,7 @@ What do we want to identify across different data modalities:
 * And most often asked, what do they reveal together that they don’t individually?
 
 Clarifying this upfront helps determine whether you need an unsupervised factor model, a predictive classifier, or a mechanistic graph-based approach.
-Consider the data type 
+
 
 ### __Navigating data hurdles__
 
