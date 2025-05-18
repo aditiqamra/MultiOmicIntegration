@@ -71,7 +71,7 @@ Whatever the method, results must ultimately be biologically interpretable. This
 
 ### __Orthogonal Validation__
 
-Finally, we should always orthogonally validate findings to be able to trust the output of multi-omic methods e.g. Do results align with known biology, be validated through functional assays and/or generalize to other cohorts
+Finally, we should always orthogonally validate findings to be able to trust the output of multi-omic methods e.g. Do results align with known biology, do they need to be be validated through functional assays and/or do they generalize to other cohorts
 
 ### List of available multi-omic tools
 
