@@ -95,8 +95,8 @@ Models like MOFA2 posit that the observed data i.e our collected data modalities
 
 ### __Why use Probabilistic Modeling__
 
-By modeling the data as probability distributions rather than fixed values, we naturally capture and quantify uncertainty and noise
-It allows for specification of different distributions per data modality
+* By modeling the data as probability distributions rather than fixed values, we naturally capture and quantify uncertainty and noise.
+* It allows for specification of different distributions per data modality.
 
 ### __What are Latent Factors__
 
@@ -114,14 +114,14 @@ __Notice the factors are shared across all data modalities and weights are speci
 
 ### __Why Bayesian__?
 
-MOFA2 is Bayesian because it uses Bayes’ theorem to infer how likely are different values of the latent factors and weights are, given the observed data. It places prior distributions on the unknown parameters and updates these priors using the observed data to infer posterior distributions via Bayes' theorem.
+MOFA2 is Bayesian because it uses Bayes’ theorem to infer how likely different values of the latent factors and weights are, given the observed data. It places prior distributions on the unknown parameters and updates these priors using the observed data to infer posterior distributions via Bayes' theorem.
 
 This is where we dive a bit deeper into the maths of MOFA2 (but intuitively):
 
 In Bayesian statistics -
 
-1. We start with a guess about what the parameter might be—called the prior distribution
-2. Then we collect data and see how likely it is under various parameter values—this is the likelihood
+1. We start with a guess about what the parameter might be—called the prior distribution.
+2. Then we collect data and see how likely it is under various parameter values—this is the likelihood.
 3. Finally we combine the prior and the likelihood to get an updated belief—the posterior distribution.
 
 
@@ -187,7 +187,7 @@ ELBO = Data fit + Prior regularization - Complexity Control
 
 ```
 
-* __Data Fit (Likelihood Term)__: How well your chosen latent factors and loadings “reconstruct” the observed omic measurements.
+* __Data Fit (Likelihood Term)__: Is how well your chosen latent factors and loadings “reconstruct” the observed omic measurements.
 
 We already know that MOFA2 treats every measurement in each data modality as the model’s predicted value (latent factors × loadings) plus some random noise. It then asks, “How far off is my prediction?” by computing a weighted squared error for each feature—features with more noise count less. Because MOFA2 assumes both its uncertainty and the noise are Gaussian, all those errors collapse into a simple formula that can be computed directly.
 
