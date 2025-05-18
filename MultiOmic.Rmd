@@ -44,7 +44,7 @@ What do we want to identify across different data modalities:
 
 * Shared programs: Are you looking for biological themes that echo across data types e.g. immune cell activation reflected in both gene expression and cytokine levels?
 * Unique signals: Or do you need to tease out what one omic tells you that none of the others can?
-* Does combining them improve ability to stratify patients or predict disease/treatment outcome
+* Does combining them improve ability to stratify patients or predict disease/treatment outcome ?
 * And most often asked, what do they reveal together that they don’t individually?
 
 Clarifying this upfront helps determine whether you need an unsupervised factor model, a predictive classifier, or a mechanistic graph-based approach.
@@ -144,11 +144,12 @@ Extending this to MOFA2:
 
 * __Prior__: The prior distribution p(factor, loadings..) reflects our initial beliefs about the latent factors and their associated weights. 
 For factors, MOFA2 assumes each latent factor has a normal distribution centered around zero, reflecting the idea that most factors might have little influence on the data, but some factors could be more influential.
-For weights or factor loadings, sparsity-inducing priors (automatic relevance determination) are used which ensures not 
+For weights or factor loadings, sparsity-inducing priors (automatic relevance determination) are used which ensures not all features and not all factors are selected yielding simpler and more interpretable models.
 
+ 
 * __Likelihood__: The likelihood function p(data|factors, loadings..) tells us how likely the observed data is, given a set of latent factors and their feature loadings. In MOFA2, user can specify each data modality as an appropriate distribution e.g. Gaussian likelihood, where the data is assumed to be normally distributed around the factors with some level of noise.
 
-* __Posterior__: The posterior distribution p(factor, loadings.. ∣data ) is what we ultimately want to estimate. It gives us the updated beli	ef about the latent factors and feature loadings after incorporating the observed data. The posterior distribution quantifies not just the "most likely" values of these parameters but also how uncertain we are about them. 
+* __Posterior__: The posterior distribution p(factor, loadings.. ∣data ) is what we ultimately want to estimate. It gives us the updated belief about the latent factors and feature loadings after incorporating the observed data. The posterior distribution quantifies not just the "most likely" values of these parameters but also how uncertain we are about them. 
 
 __But what about the p(data)__ ?
 
@@ -209,7 +210,7 @@ By computing each of these in closed form (thanks to Gaussian choices), MOFA2 ca
 
 ### __Code example__
 
-Now that we have gone through the theory of MOFA2 in a top down approach in deep, lets cover a practical example. We will walk through specific code lines in  [tutorial](https://raw.githack.com/bioFAM/MOFA2_tutorials/master/R_tutorials/CLL.html) accompanying MOFA2 but focus on what each step does rather than trying to replicate it
+Now that we have gone through the theory of MOFA2 in a top down approach in deep, let's cover a practical example. We will walk through specific code lines in  [tutorial](https://raw.githack.com/bioFAM/MOFA2_tutorials/master/R_tutorials/CLL.html) accompanying MOFA2 but focus on what each step does rather than trying to replicate it
 
 Using 4 data modalities in CLL_data, the tutorial attempts to identify latent factors capturing variation in mutational, mRNA, methylation and drug response data.
 
@@ -257,7 +258,7 @@ In deeply understanding one such tool `MOFA2` we internalized the core of Bayesi
 * Choose modality‐specific likelihoods to match data distributions, and
 * Use approximate inference (EM, variational inference or VAEs) to recover posteriors.
 
-Now that we understand these four pillars, you can pick up and interpret any related multi-omic tool. H
+Now that we understand these four pillars, you can pick up and interpret any related multi-omic tool. 
 
 ## __References__
 
